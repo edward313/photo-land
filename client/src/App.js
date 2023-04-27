@@ -36,6 +36,7 @@ const App = () => {
   return (
     <div>
       <RouterProvider router={router} />
+      <h3>hello</h3>
     </div>
   );
 };
