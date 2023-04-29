@@ -1,7 +1,23 @@
-import React from 'react';
-
+import React from "react";
+import useFetch from "../hooks/useFetch";
+import { Link } from "react-router-dom";
 const CategoryNav = () => {
-  return <div>CategoryNav</div>;
+  const { data } = useFetch("/categories");
+
+  return (
+    <aside className="hidden xl:flex">
+      <div className="bg-primary flex flex-col w-[286px] h-[500px] rounded-[8px] overflow-hidden">
+        <div className="bg-accent py-4 text-primary upercase">
+          Browse Categories
+        </div>
+        <div className="flex flex-col gap-y-6 p-6">
+          {data?.map((category) => {
+            return <Link>categories</Link>;
+          })}
+        </div>
+      </div>
+    </aside>
+  );
 };
 
 export default CategoryNav;
