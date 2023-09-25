@@ -13,7 +13,7 @@ import Cart from "../components/Cart.js";
 
 import { CartContext } from "../context/CartContext";
 const Header = () => {
-  const { isOpen, setIsOpen } = useContext(CartContext);
+  const { isOpen, setIsOpen, itemAmount } = useContext(CartContext);
   const [catNavMobile, setCatNavMobile] = useState(false);
   return (
     <header className="bg-primary py-6 fixed w-full top-4 z-40 lg:relative xl:mb-[30px]">
@@ -46,12 +46,12 @@ const Header = () => {
               Need help ? 123 456 789{" "}
             </div>
             <div className="relative cursor-pointer">
-              <SlBag className="text-2xl" />
+              <SlBag onClick={() => setIsOpen(true)} className="text-2xl" />
               {/* amount */}
               <div
                 className="bg-accent text-primary absolute w-[18px] h-[18px] rounded-full top-3 -right-1 text-[13px]
                flex justify-center items-center font-bold tracking-[-0.1rem]">
-                2
+                {itemAmount}
               </div>
             </div>
             {/* cart */}
